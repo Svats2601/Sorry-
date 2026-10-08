@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A little sorry for you 🧸💕</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧸</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Pacifico&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pink:#ff8fb1; --hot:#ff5c8a; --bubble:#ffd6e5; --cream:#fff8fb;
+  --lav:#d9c8ff; --mint:#c9f2e3; --sun:#ffe9a8; --ink:#5a2a47;
+}
+*{box-sizing:border-box;margin:0}
+body{
+  font-family:'Fredoka',system-ui,sans-serif;color:var(--ink);line-height:1.6;min-height:100vh;overflow-x:hidden;
+  background:
+    radial-gradient(circle,#ffffff80 2px,transparent 2.5px) 0 0/28px 28px,
+    linear-gradient(180deg,#ffe3ee,#fff3f8 50%,#ece2ff);
+}
+section{max-width:34rem;margin:0 auto;padding:3rem 1.4rem;text-align:center;position:relative;z-index:1}
+h1,h2{font-family:'Pacifico',cursive;font-weight:400;color:var(--hot);line-height:1.3}
+h1{font-size:clamp(2rem,8vw,2.9rem)}
+h2{font-size:clamp(1.6rem,6vw,2.1rem);margin-bottom:1.2rem}
+:focus-visible{outline:3px dashed var(--hot);outline-offset:4px}
+
+/* floating background hearts */
+.bg{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.bg i{position:absolute;bottom:-3rem;font-style:normal;opacity:.55;animation:up linear infinite}
+@keyframes up{to{transform:translateY(-115vh) rotate(25deg)}}
+
+/* bear */
+.bear-wrap{width:12.5rem;margin:0 auto .4rem;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.bear{width:100%;height:auto;animation:sway 3s ease-in-out infinite;transform-origin:50% 90%}
+.bear.squish{animation:squish .6s}
+@keyframes sway{50%{transform:rotate(-4deg)}}
+@keyframes squish{30%{transform:scale(1.15,.85)}60%{transform:scale(.92,1.1)}}
+.tear{animation:drip 1.8s ease-in infinite}
+.tear.b{animation-delay:.9s}
+@keyframes drip{0%{transform:translateY(0);opacity:1}80%,100%{transform:translateY(18px);opacity:0}}
+.glad{display:none}
+.happy .glad{display:inline}.happy .sad{display:none}
+.bubble{
+  display:inline-block;background:#fff;border-radius:1.2rem;padding:.55rem 1.1rem;margin-top:.3rem;
+  box-shadow:0 6px 0 var(--bubble);font-size:.95rem;position:relative;min-height:2.4rem;
+}
+.bubble::before{content:"";position:absolute;top:-.5rem;left:50%;margin-left:-.5rem;border:.5rem solid transparent;border-top:0;border-bottom-color:#fff}
+.tap{margin-top:.8rem;font-size:.85rem;opacity:.7}
+.sub{font-size:1.15rem;margin-top:.8rem}
+
+/* phone */
+.phone{
+  background:#fff;border-radius:2rem;padding:1.1rem 1rem 1.2rem;border:4px solid var(--pink);
+  box-shadow:0 8px 0 var(--pink);text-align:left;max-width:20rem;margin:0 auto;
+}
+.phone h3{text-align:center;font-weight:500;font-size:.95rem;margin-bottom:.6rem;color:var(--hot)}
+.notif{
+  display:flex;gap:.6rem;align-items:center;padding:.55rem .75rem;margin-top:.45rem;border-radius:1rem;
+  background:var(--bubble);font-size:.88rem;opacity:0;transform:scale(.85)
+}
+.notif.show{opacity:1;transform:none;transition:.5s cubic-bezier(.3,1.8,.5,1)}
+.notif b{display:block;font-weight:600}
+.notif .i{font-size:1.4rem}
+.notif small{margin-left:auto;opacity:.6;white-space:nowrap}
+.notif.miss{background:#ffe0e0}
+
+/* letter */
+.letter{
+  background:repeating-linear-gradient(transparent 0 1.9rem,#ffd6e5 1.9rem 2rem),#fffdf6;
+  border-radius:1.2rem;padding:2.4rem 1.6rem 1.8rem;text-align:left;position:relative;
+  box-shadow:0 8px 0 var(--lav);transform:rotate(-1.2deg);font-family:'Caveat',cursive;font-size:1.5rem;line-height:2rem;
+}
+.letter::before{
+  content:"";position:absolute;top:-.8rem;left:50%;width:6rem;height:1.6rem;margin-left:-3rem;
+  background:#ffe9a8cc;transform:rotate(3deg);border-radius:3px;
+}
+.letter h2{font-size:1.7rem;margin-bottom:.8rem;line-height:2rem}
+.letter p+p{margin-top:2rem}
+.sign{margin-top:2rem;text-align:right;color:var(--hot);font-weight:700}
+
+/* coupons */
+.coupons{display:grid;gap:.9rem;text-align:left}
+.coupon{
+  display:flex;align-items:center;gap:.9rem;padding:.9rem 1rem;border-radius:1.2rem;border:3px dashed var(--pink);
+  background:#fff;cursor:pointer;font:inherit;color:inherit;width:100%;text-align:left;transition:transform .2s
+}
+.coupon:nth-child(1){background:var(--sun)}.coupon:nth-child(2){background:var(--mint)}.coupon:nth-child(3){background:var(--lav)}
+.coupon:hover{transform:rotate(-1.5deg) scale(1.02)}
+.coupon .e{font-size:2rem}
+.coupon b{display:block;font-weight:600}
+.coupon small{opacity:.75}
+.coupon.used{opacity:.55;border-style:solid}
+.coupon.used b::after{content:" ✓ claimed!"}
+.note{font-size:.85rem;opacity:.7;margin-top:.8rem}
+
+/* ask */
+.btns{position:relative;display:flex;justify-content:center;gap:1rem;min-height:6rem;align-items:flex-start;flex-wrap:wrap}
+button{font:inherit;font-weight:600;border:0;cursor:pointer;border-radius:999px;padding:.9rem 1.7rem}
+.yes{background:var(--hot);color:#fff;font-size:1.15rem;box-shadow:0 6px 0 #d63d6b;animation:pulse 1.4s infinite}
+.yes:active{transform:translateY(4px);box-shadow:0 2px 0 #d63d6b}
+@keyframes pulse{50%{transform:scale(1.07)}}
+.no{background:#fff;color:var(--ink);box-shadow:0 5px 0 var(--bubble)}
+.no.run{position:fixed;z-index:5}
+.done{display:none}
+.done.on{display:block;animation:pop .7s cubic-bezier(.3,1.8,.5,1)}
+@keyframes pop{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:none}}
+.call{display:inline-block;margin-top:1.2rem;background:var(--hot);color:#fff;text-decoration:none;font-weight:600;border-radius:999px;padding:.9rem 1.8rem;box-shadow:0 6px 0 #d63d6b}
+.heart{position:fixed;top:-2rem;pointer-events:none;z-index:9;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(360deg);opacity:.3}}
+footer{position:relative;z-index:1;padding:2rem;text-align:center;font-size:.9rem;opacity:.7}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .notif{opacity:1;transform:none}.bg,.heart{display:none}
+}
+</style>
+</head>
+<body>
+<div class="bg" id="bg" aria-hidden="true"></div>
+
+<section>
+  <div class="bear-wrap" id="bearWrap" role="button" tabindex="0" aria-label="Tap the bear for a hug">
+    <svg class="bear" id="bear" viewBox="0 0 200 225" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="48" cy="48" r="28" fill="#c98b5e"/><circle cx="48" cy="48" r="14" fill="#f3b9c8"/>
+      <circle cx="152" cy="48" r="28" fill="#c98b5e"/><circle cx="152" cy="48" r="14" fill="#f3b9c8"/>
+      <circle cx="100" cy="105" r="72" fill="#dba577"/>
+      <ellipse cx="100" cy="128" rx="29" ry="21" fill="#f8e0c9"/>
+      <ellipse cx="100" cy="118" rx="9" ry="6.5" fill="#5a3a2a"/>
+      <circle cx="54" cy="122" r="11" fill="#ff8fb1" opacity=".7"/><circle cx="146" cy="122" r="11" fill="#ff8fb1" opacity=".7"/>
+      <g class="sad">
+        <circle cx="72" cy="98" r="8" fill="#3a2418"/><circle cx="128" cy="98" r="8" fill="#3a2418"/>
+        <circle cx="75" cy="95" r="3" fill="#fff"/><circle cx="131" cy="95" r="3" fill="#fff"/>
+        <path d="M58 82 L82 88 M142 82 L118 88" stroke="#3a2418" stroke-width="3.5" stroke-linecap="round"/>
+        <path d="M91 140 Q100 132 109 140" stroke="#5a3a2a" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+        <path class="tear" d="M68 108 q-6 10 0 14 q6 -4 0 -14z" fill="#7fc8ff"/>
+        <path class="tear b" d="M132 108 q-6 10 0 14 q6 -4 0 -14z" fill="#7fc8ff"/>
+      </g>
+      <g class="glad">
+        <path d="M63 100 Q72 88 81 100 M119 100 Q128 88 137 100" stroke="#3a2418" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <path d="M88 134 Q100 150 112 134 Z" fill="#c2305a" stroke="#5a3a2a" stroke-width="3" stroke-linejoin="round"/>
+      </g>
+      <path d="M100 218 C52 188 60 150 100 172 C140 150 148 188 100 218Z" fill="#ff5c8a" stroke="#fff" stroke-width="4"/>
+      <text x="100" y="188" text-anchor="middle" font-family="Fredoka,sans-serif" font-size="14" font-weight="600" fill="#fff" id="heartTxt">sorry</text>
+    </svg>
+  </div>
+  <div class="bubble" id="bubble">I made a mistake... 🥺</div>
+  <p class="tap">(tap me for a hug)</p>
+  <h1 style="margin-top:1.6rem">I'm sorry, <span class="her">love</span></h1>
+  <p class="sub">I didn't call you today, and I feel terrible.</p>
+</section>
+
+<section>
+  <div class="phone" aria-label="Missed calls and messages">
+    <h3>📱 Your day, from my side</h3>
+    <div id="notifs"></div>
+  </div>
+  <p class="note" style="margin-top:1rem">I saw all of them. Every. Single. One. 🥹</p>
+</section>
+
+<section>
+  <article class="letter">
+    <h2>Dear <span class="her">love</span>,</h2>
+    <p>You called me and texted me all day, and I didn't call back. I'm so sorry.</p>
+    <p>You never have to wonder if I'm thinking of you. I am, always. Today I just let you down.</p>
+    <p>I'll do better, I promise. 💗</p>
+    <p class="sign">Your forever, <span class="him">Sahil Vats</span> 🧸</p>
+  </article>
+</section>
+
+<section>
+  <h2>Sorry coupons 🎟️</h2>
+  <div class="coupons" id="coupons">
+    <button class="coupon"><span class="e">📞</span><span><b>One very long call</b><small>As long as you want. No hanging up.</small></span></button>
+    <button class="coupon"><span class="e">🍰</span><span><b>One treat of your choice</b><small>You pick it, I get it.</small></span></button>
+    <button class="coupon"><span class="e">🤗</span><span><b>One giant hug</b><small>The squeezy kind. Valid forever.</small></span></button>
+  </div>
+  <p class="note">Tap a coupon to claim it 💌</p>
+</section>
+
+<section>
+  <div id="question">
+    <h2>Will you forgive me? 🥺</h2>
+    <div class="btns">
+      <button class="yes" id="yes">Yes, I forgive you 💕</button>
+      <button class="no" id="no">No</button>
+    </div>
+  </div>
+  <div class="done" id="done" aria-live="polite">
+    <div style="font-size:3.4rem">🥰🧸💖</div>
+    <h2>Yay! I love you!</h2>
+    <p class="sub">You're the best girlfriend in the whole world.</p>
+    <a class="call" id="callLink" href="tel:">Call me now 📞</a>
+  </div>
+</section>
+
+<footer>Made with love, a little late, and a lot of sorry 💗</footer>
+
+<script>
+/* ===== EDIT THESE ===== */
+const HER_NAME = "Muskan baby";            // her name or nickname
+const HIS_NAME = "Sahil Vats";       // your name
+const CALL_NUMBER = "9821142606";             // optional, e.g. "+911234567890"
+/* ======================= */
+
+document.querySelectorAll('.her').forEach(e => e.textContent = HER_NAME);
+document.querySelectorAll('.him').forEach(e => e.textContent = HIS_NAME);
+const callLink = document.getElementById('callLink');
+if (CALL_NUMBER) callLink.href = 'tel:' + CALL_NUMBER; else callLink.style.display = 'none';
+
+// floating background hearts
+const bg = document.getElementById('bg');
+['💗','💕','✨','🌸','💖','🧸'].forEach((s, k) => {
+  for (let i = 0; i < 3; i++) {
+    const e = document.createElement('i');
+    e.textContent = s;
+    e.style.left = Math.random() * 96 + 'vw';
+    e.style.fontSize = (1 + Math.random() * 1.4) + 'rem';
+    e.style.animationDuration = (12 + Math.random() * 14) + 's';
+    e.style.animationDelay = (-Math.random() * 20) + 's';
+    bg.appendChild(e);
+  }
+});
+
+// heart shower
+function shower(n, emojis) {
+  for (let i = 0; i < n; i++) {
+    const h = document.createElement('div');
+    h.className = 'heart';
+    h.textContent = emojis[i % emojis.length];
+    h.style.left = Math.random() * 100 + 'vw';
+    h.style.fontSize = (1 + Math.random() * 1.6) + 'rem';
+    h.style.animationDuration = (3 + Math.random() * 3) + 's';
+    h.style.animationDelay = (Math.random() * 1.2) + 's';
+    document.body.appendChild(h);
+    setTimeout(() => h.remove(), 8000);
+  }
+}
+
+// missed notifications
+const items = [
+  {i:'📞', t:'Missed call', m:HER_NAME + ' 💕', w:'9:12', c:'miss'},
+  {i:'💬', t:HER_NAME, m:'Are you okay? Call me 🥺', w:'11:30'},
+  {i:'📞', t:'Missed call', m:HER_NAME + ' 💕', w:'1:05', c:'miss'},
+  {i:'💬', t:HER_NAME, m:'I miss you...', w:'4:47'},
+  {i:'📞', t:'Missed call', m:HER_NAME + ' 💕', w:'7:20', c:'miss'}
+];
+const box = document.getElementById('notifs');
+const els = items.map(n => {
+  const d = document.createElement('div');
+  d.className = 'notif ' + (n.c || '');
+  d.innerHTML = '<span class="i">' + n.i + '</span><div><b></b><span></span></div><small>' + n.w + '</small>';
+  d.querySelector('b').textContent = n.t;
+  d.querySelector('div span').textContent = n.m;
+  box.appendChild(d);
+  return d;
+});
+new IntersectionObserver((es, ob) => {
+  if (es[0].isIntersecting) { els.forEach((d, k) => setTimeout(() => d.classList.add('show'), k * 600)); ob.disconnect(); }
+}, {threshold: .3}).observe(box);
+
+// tap the bear for a hug
+const bear = document.getElementById('bear'), bubble = document.getElementById('bubble');
+const lines = ['*hug* 🤗 I missed you!', 'Please don\'t be mad 🥺', 'I\'m the worst bear... 😭', 'Sending you 1000 hugs 💕', 'Keep scrolling, I have a surprise! 🎁'];
+let li = 0;
+function hug() {
+  bear.classList.remove('squish'); void bear.offsetWidth; bear.classList.add('squish');
+  bubble.textContent = lines[li++ % lines.length];
+  shower(8, ['💗', '💕']);
+}
+const bw = document.getElementById('bearWrap');
+bw.addEventListener('click', hug);
+bw.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); hug(); } });
+
+// coupons
+document.querySelectorAll('.coupon').forEach(c => c.addEventListener('click', () => {
+  c.classList.add('used'); shower(10, ['🎟️', '💖']);
+}));
+
+// "No" runs away and gets more desperate
+const no = document.getElementById('no');
+const pleas = ['No', 'Please? 🥺', 'Pretty please? 🧸', 'I\'ll buy you chocolate 🍫', 'Don\'t do this 😭', 'Okay just click Yes 💕'];
+let pi = 0;
+function dodge(e) {
+  if (e) e.preventDefault();
+  no.textContent = pleas[Math.min(++pi, pleas.length - 1)];
+  no.classList.add('run');
+  no.style.left = (Math.random() * (innerWidth - no.offsetWidth - 20) + 10) + 'px';
+  no.style.top = (Math.random() * (innerHeight - no.offsetHeight - 20) + 10) + 'px';
+}
+['mouseenter', 'touchstart', 'focus', 'click'].forEach(ev => no.addEventListener(ev, dodge, {passive: false}));
+
+// Yes!
+document.getElementById('yes').addEventListener('click', () => {
+  document.getElementById('question').style.display = 'none';
+  document.getElementById('done').classList.add('on');
+  bear.classList.add('happy');
+  document.getElementById('heartTxt').textContent = 'love';
+  bubble.textContent = 'Yay!! I love you! 💖';
+  shower(50, ['❤️', '💖', '💕', '💗', '🧸', '✨']);
+  window.scrollTo({top: 0, behavior: 'smooth'});
+});
+</script>
+</body>
+</html>
